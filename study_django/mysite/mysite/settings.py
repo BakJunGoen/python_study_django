@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "userService.apps.UserserviceConfig",
     "polls.apps.PollsConfig",
     "django.contrib.admin",
-    "django.contrib.auth",
+    "django.contrib.auth", #장고 로그인을 도와주는 앱
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
 ]
 
 MIDDLEWARE = [
@@ -66,6 +68,7 @@ TEMPLATES = [
             ],
         },
     },
+    
 ]
 
 WSGI_APPLICATION = "mysite.wsgi.application"
@@ -116,3 +119,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# 로그인 성공후 이동하는 URL
+LOGIN_REDIRECT_URL = '/'

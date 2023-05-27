@@ -4,68 +4,74 @@ from django.views import View
 from django.http import HttpResponse, JsonResponse
 import json
 from django.core.serializers import serialize
-# from models import Question
-# from models import User
 
-# class IndexView(View):
-    # def get(self, request):
-    #     dummy_data = {
-    #         'name': '죠르디',
-    #         'type': '공룡',
-    #         'job': '편의점알바생',
-    #         'age': 5
-    #     }
-    #     return JsonResponse(dummy_data)
+# from .models import Users
 
 
-    # def get(self, request):
-    #     dummy_data = {
-    #         'name' : '조르디',
-    #         'type' : '공룡'
-    #     }
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
-    #     return JsonResponse(dummy_data)
+# @csrf_exempt
+# def signUp(request):
+#     if request.method == "GET":
+#         return HttpResponse("signUp")
+#         # users = Users.objects.all().order_by('-id')
+#         # data = json.loads(serialize('json', Users))
+#         # return JsonResponse({'items': data})
+    
+#     elif request.method == "POST":
+#         if request.META['CONTENT_TYPE'] == 'application/json':
+#             userNew = Users(user_id = request['user_id'],
+#                         user_name = request['user_name'],
+#                         user_email = request['user_email'],
+#                         user_pw = request['user_pw'],
+#                         user_is_staff = request['user_is_staff'],
+#                         user_last_login = request['user_last_login'],
+#                         user_register_dttm = request['user_register_dttm'])
+#         else:
+#             userNew = Users(user_id = request.POST['user_id'],
+#                         user_name = request.POST['user_name'],
+#                         user_email = request.POST['user_email'],
+#                         user_pw = request.POST['user_pw'],
+#                         user_is_staff = request.POST['user_is_staff'],
+#                         user_last_login = request.POST['user_last_login'],
+#                         user_register_dttm = request.POST['user_register_dttm'])
+#     userNew.save()
+#     return HttpResponse(status=200)
 
+# @csrf_exempt
+# def signIn(request):
+#     if request.method == "GET":
+#         return HttpResponse("signUp")
+    
+#     if request.method == "POST":
+#         user_email = request.POST['user_email']
+#         user_pw = request.POST['user_pw']
 
-    # def post(self, request):
-    #     if request.META['CONTENT_TYPE'] == 'application/json':
-    #         request = json.loads(request.body)
-    #         question = Question(question_text = request['question_text'],
-    #                             pub_date = request['pub_date'])
-            
-    #     else:
-    #         question = Question(question_text = request.POST['question_text'],
-    #                             pub_date = request.POST['pub_date'])
+#         user authenticate
 
-    #     question.save
+#         if 
+    
 
-    #     return HttpResponse(status='200')
+# class userControl(View):
 
-
-
-
-
-
-    # def post(self, request):
+    # if request.META['CONTENT_TYPE'] == 'application/json':
+    #     request = json.loads(request.body)
+    #     users = User(user_id = request['user_id'],
+    #                     user_name = request['user_name'],
+    #                     user_email = request['user_email'],
+    #                     user_pw = request['user_pw'],
+    #                     user_is_staff = request['user_is_staff'],
+    #                     user_last_login = request['user_last_login'],
+    #                     user_register_dttm = request['user_register_dttm'])
+    # else:
+    #     users = User(user_id = request.POST['user_id'],
+    #                     user_name = request.POST['user_name'],
+    #                     user_email = request.POST['user_email'],
+    #                     user_pw = request.POST['user_pw'],
+    #                     user_is_staff = request.POST['user_is_staff'],
+    #                     user_last_login = request.POST['user_last_login'],
+    #                     user_register_dttm = request.POST['user_register_dttm'])
         
-        # if request.META['CONTENT_TYPE'] == 'application/json':
-        #     request = json.loads(request.body)
-        #     users = User(user_id = request['user_id'],
-        #                  user_name = request['user_name'],
-        #                  user_email = request['user_email'],
-        #                  user_pw = request['user_pw'],
-        #                  user_is_staff = request['user_is_staff'],
-        #                  user_last_login = request['user_last_login'],
-        #                  user_register_dttm = request['user_register_dttm'])
-        # else:
-        #     users = User(user_id = request.POST['user_id'],
-        #                  user_name = request.POST['user_name'],
-        #                  user_email = request.POST['user_email'],
-        #                  user_pw = request.POST['user_pw'],
-        #                  user_is_staff = request.POST['user_is_staff'],
-        #                  user_last_login = request.POST['user_last_login'],
-        #                  user_register_dttm = request.POST['user_register_dttm'])
-            
-        # users.save
+    # users.save
 
-        # return HttpResponse(status=200)

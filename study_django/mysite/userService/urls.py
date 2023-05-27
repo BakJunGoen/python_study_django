@@ -7,5 +7,5 @@ from . import views
 app_name = 'userService'
 
 urlpatterns = [
-
+    # path('signUp/', views.signUp, name='signUp'),
 ]

@@ -123,3 +123,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # 로그인 성공후 이동하는 URL
 LOGIN_REDIRECT_URL = '/'
+
+
+#user 모델 정의
+AUTH_USER_MODEL = 'userService.User'
+
+# log(로깅)설정

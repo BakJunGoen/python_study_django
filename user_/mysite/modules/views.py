@@ -6,16 +6,24 @@ from django.http import HttpResponse
 #csrf 풀기
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-
+from django.utils import timezone
 
 from .models import User
 
 def index(request):
     return HttpResponse("/modules 의 index 입니다.")
 
-
-@csrf_exempt
+# csrf 보안 해제(test할때만 풀것)
+@csrf_exempt 
 def signUp(request):
+
+    ''' signUp 회원가입
+        password,
+        username,
+        emial,
+        is_staff,
+        is_active,
+        의 데이터를 받음'''
     
     if request.method == "GET":
         return HttpResponse("signUp 함수")
@@ -28,6 +36,7 @@ def signUp(request):
                         email = request['email'],
                         is_staff = request['is_staff'],
                         is_active = request['is_active'],
+                        last_login = timezone.now()
                         )
         else:
             userNew = User(
@@ -36,6 +45,7 @@ def signUp(request):
                         email = request.POST['email'],
                         is_staff = request.POST['is_staff'],
                         is_active = request.POST['is_active'],
+                        last_login = timezone.now()
                         )
     userNew.save()
     return HttpResponse(status=200)

@@ -7,7 +7,8 @@ app_name = 'modules'
 
 urlpatterns = [
     path('', views.index, name='modules_views index'),
-    path('signUp/', views.signUp, name="sign Up")
+    path('signUp/', views.signUp, name="sign Up"),
+    path('signUp2/', views.singup2.as_view(), name="signUp Test")
     # path('user/', user_views.index, name='user_views index')
     # path('<int:question_id>/', views.detail, name='detail'),
     # path('<int:question_id>/results/', views.results, name='results'),
